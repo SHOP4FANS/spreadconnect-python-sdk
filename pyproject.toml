@@ -1,0 +1,26 @@
+[project]
+name = "spreadconnect-python-sdk"
+version = "0.1.0"
+description = "A SDK for Spreadconnect"
+readme = "README.md"
+authors = [
+    { name = "Konrad Hölzenbein", email = "konrad@shop4fans.io" },
+    { name = "Antonii Adamovych", email = "antonii@shop4fans.io" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "pydantic>=2.11.9",
+]
+
+[project.scripts]
+spreadconnect-python-sdk = "spreadconnect_python_sdk:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+]
