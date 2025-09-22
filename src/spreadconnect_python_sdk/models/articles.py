@@ -1,5 +1,5 @@
 from typing import List, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, RootModel
 
 class ArticleImage(BaseModel):
     id: Optional[int] = None
@@ -53,11 +53,11 @@ class GetArticlesResponse(BaseModel):
     limit: int
     offset: Optional[int] = None
 
-class CreateArticleResponse(BaseModel):
-    __root__: int
+class CreateArticleResponse(RootModel[int]):
+    pass
 
 class GetSingleArticleResponse(Article):
     pass
 
-class DeleteSingleArticleResponse(BaseModel):
-    __root__: None
+class DeleteSingleArticleResponse(RootModel[None]):
+    pass

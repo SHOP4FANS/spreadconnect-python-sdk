@@ -1,5 +1,5 @@
 from typing import List, Optional, Dict
-from pydantic import BaseModel
+from pydantic import BaseModel, RootModel
 
 class GetStocksResponse(BaseModel):
     items: Optional[Dict[str, int]] = None
@@ -15,5 +15,5 @@ class StockVariantByProductType(BaseModel):
 class GetStockByProductTypeResponse(BaseModel):
     variants: Optional[List[StockVariantByProductType]] = None
 
-class GetStockResponse(BaseModel):
-    __root__: int
+class GetStockResponse(RootModel[int]):
+    pass

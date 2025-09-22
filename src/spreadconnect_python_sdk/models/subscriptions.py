@@ -1,5 +1,5 @@
 from typing import Optional, Literal, List
-from pydantic import BaseModel
+from pydantic import BaseModel, RootModel
 
 EventType = Literal[
     "Shipment.sent",
@@ -17,5 +17,5 @@ class Subscription(BaseModel):
     url: str
     secret: Optional[str] = None
 
-class GetSubscriptionsResponse(BaseModel):
-    __root__: List[Subscription]
+class GetSubscriptionsResponse(RootModel[List[Subscription]]):
+    pass

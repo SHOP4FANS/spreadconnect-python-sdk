@@ -1,5 +1,5 @@
-from typing import Optional, Literal
-from pydantic import BaseModel
+from typing import Optional, Literal, List
+from pydantic import BaseModel, RootModel
 from .address import Address
 from .price import Price, CustomerPrice
 
@@ -21,5 +21,5 @@ class ShippingInfo(BaseModel):
     price: Optional[Price] = None
     customer_price: Optional[CustomerPrice] = None
 
-class GetShippingTypesResponse(BaseModel):
-    __root__: list[AvailableShippingType]
+class GetShippingTypesResponse(RootModel[List[AvailableShippingType]]):
+    pass

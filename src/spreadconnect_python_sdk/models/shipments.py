@@ -1,5 +1,5 @@
 from typing import List, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, RootModel
 
 class TrackingInfo(BaseModel):
     code: Optional[str] = None
@@ -17,5 +17,5 @@ class Shipment(BaseModel):
     closed_date: Optional[str] = None
     sent_date: Optional[str] = None
 
-class GetShipmentsResponse(BaseModel):
-    __root__: List[Shipment]
+class GetShipmentsResponse(RootModel[List[Shipment]]):
+    pass
