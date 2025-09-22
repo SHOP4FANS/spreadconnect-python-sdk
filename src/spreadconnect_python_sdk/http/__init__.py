@@ -1,1 +1,1 @@
-from .client import HttpClient, ApiResponse
+from .client import HttpClient

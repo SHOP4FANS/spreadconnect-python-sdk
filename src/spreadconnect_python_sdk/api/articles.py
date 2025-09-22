@@ -2,7 +2,6 @@ from typing import Optional
 from spreadconnect_python_sdk.http.client import HttpClient
 from spreadconnect_python_sdk.endpoints import ARTICLES_PATH
 from spreadconnect_python_sdk.models.articles import (
-    GetArticlesParams,
     GetArticlesResponse,
     GetSingleArticleResponse,
     ArticleCreation,
