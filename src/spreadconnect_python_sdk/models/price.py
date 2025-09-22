@@ -1,11 +1,13 @@
 from typing import Optional
-from pydantic import BaseModel
+from .common import CamelModel
 
-class CustomerPrice(BaseModel):
+
+class CustomerPrice(CamelModel):
     amount: float
     currency: Optional[str] = None
 
-class Price(BaseModel):
+
+class Price(CamelModel):
     amount: float
     tax_rate: Optional[float] = None
     tax_amount: Optional[float] = None

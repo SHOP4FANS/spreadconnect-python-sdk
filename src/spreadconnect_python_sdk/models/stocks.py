@@ -1,19 +1,24 @@
-from typing import List, Optional, Dict
-from pydantic import BaseModel, RootModel
+from typing import Optional, Dict, List
+from pydantic import RootModel
+from .common import CamelModel
 
-class GetStocksResponse(BaseModel):
+
+class GetStocksResponse(CamelModel):
     items: Optional[Dict[str, int]] = None
     count: int
     limit: int
     offset: Optional[int] = None
 
-class StockVariantByProductType(BaseModel):
+
+class StockVariantByProductType(CamelModel):
     appearance_id: str
     size_id: str
     stock: int
 
-class GetStockByProductTypeResponse(BaseModel):
+
+class GetStockByProductTypeResponse(CamelModel):
     variants: Optional[List[StockVariantByProductType]] = None
+
 
 class GetStockResponse(RootModel[int]):
     pass

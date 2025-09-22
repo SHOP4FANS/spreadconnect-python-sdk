@@ -1,7 +1,9 @@
 from typing import List, Optional
-from pydantic import BaseModel, RootModel
+from pydantic import RootModel
+from .common import CamelModel
 
-class ArticleImage(BaseModel):
+
+class ArticleImage(CamelModel):
     id: Optional[int] = None
     product_id: Optional[int] = None
     appearance_id: Optional[int] = None
@@ -9,12 +11,19 @@ class ArticleImage(BaseModel):
     perspective: Optional[str] = None
     image_url: Optional[str] = None
 
-class ArticleConfiguration(BaseModel):
+
+class ArticleConfigurationImage(CamelModel):
+    url: Optional[str] = None
+    design_id: Optional[str] = None
+
+
+class ArticleConfiguration(CamelModel):
     image: dict
     view: str
     hotspot: Optional[str] = None
 
-class ArticleVariant(BaseModel):
+
+class ArticleVariant(CamelModel):
     id: Optional[int] = None
     product_type_id: Optional[int] = None
     product_type_name: Optional[str] = None
@@ -29,35 +38,50 @@ class ArticleVariant(BaseModel):
     b2b_price: Optional[float] = None
     image_ids: Optional[List[int]] = None
 
-class Article(BaseModel):
+
+class Article(CamelModel):
     id: Optional[int] = None
     title: Optional[str] = None
     description: Optional[str] = None
     variants: Optional[List[ArticleVariant]] = None
     images: Optional[List[ArticleImage]] = None
 
-class ArticleCreation(BaseModel):
+
+class ArticleCreationVariant(CamelModel):
+    product_type_id: int
+    appearance_id: int
+    size_id: int
+    d2c_price: Optional[float] = None
+    external_id: Optional[str] = None
+
+
+class ArticleCreation(CamelModel):
     title: str
     description: str
-    variants: List[dict]
+    variants: List[ArticleCreationVariant]
     configurations: List[ArticleConfiguration]
     external_id: Optional[str] = None
 
-class GetArticlesParams(BaseModel):
+
+class GetArticlesParams(CamelModel):
     limit: Optional[int] = None
     offset: Optional[int] = None
 
-class GetArticlesResponse(BaseModel):
+
+class GetArticlesResponse(CamelModel):
     items: Optional[List[Article]] = None
     count: int
     limit: int
     offset: Optional[int] = None
 
+
 class CreateArticleResponse(RootModel[int]):
     pass
 
+
 class GetSingleArticleResponse(Article):
     pass
+
 
 class DeleteSingleArticleResponse(RootModel[None]):
     pass

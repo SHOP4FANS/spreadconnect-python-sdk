@@ -1,7 +1,8 @@
 from typing import Optional
-from pydantic import BaseModel
+from .common import CamelModel
 
-class Address(BaseModel):
+
+class Address(CamelModel):
     company: Optional[str] = None
     first_name: Optional[str] = None
     last_name: str

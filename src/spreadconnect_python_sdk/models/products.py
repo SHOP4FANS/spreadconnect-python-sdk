@@ -1,17 +1,20 @@
 from typing import List, Optional, Literal
-from pydantic import BaseModel
+from .common import CamelModel
 
 ProductView = Literal["FRONT", "BACK", "LEFT", "RIGHT", "HOOD_LEFT", "HOOD_RIGHT"]
 
-class ProductSize(BaseModel):
+
+class ProductSize(CamelModel):
     id: Optional[str] = None
     name: Optional[str] = None
 
-class ProductAppearance(BaseModel):
+
+class ProductAppearance(CamelModel):
     id: Optional[str] = None
     name: Optional[str] = None
 
-class ProductTypes(BaseModel):
+
+class ProductTypes(CamelModel):
     id: Optional[str] = None
     customer_name: Optional[str] = None
     customer_description: Optional[str] = None
@@ -24,8 +27,10 @@ class ProductTypes(BaseModel):
     price: Optional[float] = None
     currency: Optional[str] = None
 
-class GetProductTypesResponse(BaseModel):
+
+class GetProductTypesResponse(CamelModel):
     items: Optional[List[ProductTypes]] = None
+
 
 class GetSingleProductTypesResponse(ProductTypes):
     pass

@@ -1,9 +1,11 @@
 from typing import Optional
-from pydantic import BaseModel
+from .common import CamelModel
 
-class DesignUpload(BaseModel):
+
+class DesignUpload(CamelModel):
     file: Optional[bytes] = None
     url: Optional[str] = None
 
-class DesignUploadResponse(BaseModel):
+
+class DesignUploadResponse(CamelModel):
     design_id: str

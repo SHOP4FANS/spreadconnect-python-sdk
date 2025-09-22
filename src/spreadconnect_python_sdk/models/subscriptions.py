@@ -1,5 +1,6 @@
-from typing import Optional, Literal, List
-from pydantic import BaseModel, RootModel
+from typing import List, Optional, Literal
+from pydantic import RootModel
+from .common import CamelModel
 
 EventType = Literal[
     "Shipment.sent",
@@ -8,14 +9,16 @@ EventType = Literal[
     "Order.needs-action",
     "Article.added",
     "Article.updated",
-    "Article.removed"
+    "Article.removed",
 ]
 
-class Subscription(BaseModel):
-    id: Optional[str] = None
+
+class Subscription(CamelModel):
+    id: Optional[int] = None
     event_type: EventType
     url: str
     secret: Optional[str] = None
+
 
 class GetSubscriptionsResponse(RootModel[List[Subscription]]):
     pass

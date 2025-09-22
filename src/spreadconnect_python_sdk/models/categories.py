@@ -1,28 +1,34 @@
 from typing import List, Optional
-from pydantic import BaseModel
+from .common import CamelModel
 
-class CategoryNode(BaseModel):
+
+class CategoryNode(CamelModel):
     id: Optional[str] = None
     translation: Optional[str] = None
     children: Optional[List["CategoryNode"]] = None
 
-class Feature(BaseModel):
+
+class Feature(CamelModel):
     id: Optional[str] = None
     translation: Optional[str] = None
 
-class BrandCategory(BaseModel):
+
+class BrandCategory(CamelModel):
     id: Optional[str] = None
     translation: Optional[str] = None
 
-class Gender(BaseModel):
+
+class Gender(CamelModel):
     id: Optional[str] = None
     translation: Optional[str] = None
 
-class Categories(BaseModel):
+
+class Categories(CamelModel):
     categories: Optional[List[CategoryNode]] = None
     features: Optional[List[Feature]] = None
     brands: Optional[List[BrandCategory]] = None
     genders: Optional[List[Gender]] = None
+
 
 class GetProductTypeCategoriesResponse(Categories):
     pass

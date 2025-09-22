@@ -1,4 +1,3 @@
-from .auth import AuthResponse
 from .articles import (
     Article,
     ArticleCreation,
@@ -72,3 +71,4 @@ from .stocks import (
 )
 from .designs import DesignUpload, DesignUploadResponse
 from .errors import ErrorResponse
+from .common import CamelModel
