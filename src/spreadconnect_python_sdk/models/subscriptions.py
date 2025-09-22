@@ -14,7 +14,7 @@ EventType = Literal[
 
 
 class Subscription(CamelModel):
-    id: Optional[int] = None
+    id: Optional[str] = None
     event_type: EventType
     url: str
     secret: Optional[str] = None

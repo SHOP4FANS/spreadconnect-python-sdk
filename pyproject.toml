@@ -1,6 +1,6 @@
 [project]
 name = "spreadconnect-python-sdk"
-version = "0.1.4"
+version = "0.1.5"
 description = "A SDK for Spreadconnect"
 readme = "README.md"
 authors = [
