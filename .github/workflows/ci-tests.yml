@@ -21,7 +21,7 @@ jobs:
         run: pip install uv
 
       - name: Install package with dev deps
-        run: uv pip install -e ".[dev]"
+        run: uv pip install -e ".[dev]" --system
 
       - name: Run pytest with coverage
         run: pytest -v
