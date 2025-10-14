@@ -1,4 +1,6 @@
 from typing import List, Optional, Literal
+
+from pydantic import RootModel
 from .common import CamelModel
 
 ProductView = Literal["FRONT", "BACK", "LEFT", "RIGHT", "HOOD_LEFT", "HOOD_RIGHT"]
@@ -28,8 +30,8 @@ class ProductTypes(CamelModel):
     currency: Optional[str] = None
 
 
-class GetProductTypesResponse(CamelModel):
-    items: Optional[List[ProductTypes]] = None
+class GetProductTypesResponse(RootModel[list[ProductTypes]]):
+    pass
 
 
 class GetSingleProductTypesResponse(ProductTypes):
